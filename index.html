@@ -7,66 +7,94 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #14221f;
-      --muted: #5c6f6b;
-      --line: #d7e3df;
-      --paper: #f3f7f5;
+      --ink: #1c2b28;
+      --muted: #5c6c68;
+      --line: #d5e0dc;
+      --paper: #eef2f1;
       --card: #ffffff;
       --teal: #0f6e6b;
+      --wash: #f4faf8;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: "Iowan Old Style", Palatino, Georgia, serif;
+      font-family: "Segoe UI", "Avenir Next", sans-serif;
       color: var(--ink);
       background: var(--paper);
     }
-    header.site {
-      background: var(--teal);
-      color: white;
-      padding: 2.5rem 1.5rem 2rem;
-    }
-    header.site p { color: #d7ece9; }
-    main { max-width: 880px; margin: 0 auto; padding: 1.5rem; }
-    h1 { font-weight: 600; font-size: 2rem; margin: 0.2rem 0; }
-    h2 { font-size: 1.45rem; margin: 0; }
-    .mark { letter-spacing: 0.14em; text-transform: uppercase; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 0.78rem; margin: 0; }
-    article {
+    main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+    header.site { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-end; margin-bottom: 1.25rem; }
+    h1 { font-weight: 650; font-size: 1.7rem; margin: 0.15rem 0 0.3rem; letter-spacing: -0.02em; }
+    h2 { font-size: 1.55rem; margin: 0; letter-spacing: -0.02em; }
+    h3 { font-size: 0.78rem; margin: 1rem 0 0.35rem; color: var(--muted); font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; }
+    .mark, .kicker { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; color: var(--teal); margin: 0; }
+    .lede, .note, .updated, .empty { color: var(--muted); font-size: 0.92rem; }
+    .lede { margin: 0; max-width: 38rem; }
+    article, .archive {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 1.25rem 1.35rem 1.1rem;
-      margin-bottom: 1rem;
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem 1.15rem;
     }
-    dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.8rem 1rem; margin: 1rem 0; }
-    dt { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
-    dd { margin: 0.15rem 0 0; font-size: 1.25rem; }
-    h3 { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 0.85rem; margin: 0.6rem 0 0.3rem; color: var(--muted); font-weight: 600; }
-    .note, .updated, .empty { color: var(--muted); font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 0.92rem; }
+    .archive { margin-top: 1rem; padding-bottom: 0.4rem; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin: 1rem 0 0.85rem; }
+    .stats div { background: var(--wash); border-radius: 12px; padding: 0.85rem 0.9rem; }
+    dt { font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    dd { margin: 0.2rem 0 0; font-size: 1.55rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+    .bar { height: 8px; background: #e3eeeb; border-radius: 99px; overflow: hidden; margin: 0 0 0.4rem; }
+    .bar span { display: block; height: 100%; background: var(--teal); }
+    .fold dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.7rem 1rem; margin: 0.4rem 0 0.8rem; }
+    .fold dd { font-size: 1.05rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); font-weight: 650; padding: 0.15rem 0.8rem 0.7rem 0; border-bottom: 1px solid var(--line); }
+    td { padding: 0.72rem 0.8rem 0.72rem 0; border-bottom: 1px solid #e7efec; font-variant-numeric: tabular-nums; vertical-align: top; }
+    tr:last-child td { border-bottom: 0; }
+    td:nth-child(n+2), th:nth-child(n+2) { text-align: right; }
+    summary { cursor: pointer; font-weight: 650; }
+    .scroll { overflow-x: auto; }
+    @media (max-width: 720px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      header.site { display: block; }
+    }
   </style>
 </head>
 <body>
-  <header class="site">
-    <p class="mark">FlexTecs</p>
-    <h1>GSCOP weekly records</h1>
-    <p>Each finished week, on this page.</p>
-  </header>
   <main>
-    <article>
+    <header class="site">
+      <div>
+        <p class="mark">FlexTecs</p>
+        <h1>GSCOP weekly records</h1>
+        <p class="lede">The latest finished week is shown in full. Older weeks stay in the list below.</p>
+      </div>
+    </header>
+    <article class="latest">
+      <p class="kicker">Latest week</p>
       <h2>11/15 – 11/21</h2>
-      <dl><div><dt>Emails in the week</dt><dd>1128</dd></div><div><dt>AIR tagged</dt><dd>503</dd></div><div><dt>Tagged ratio</dt><dd>44.59%</dd></div><div><dt>Threshold</dt><dd>0.01235166285187</dd></div></dl>
-      <h3>Prior week 2026-11-08</h3><p class="note">No GSCOP Yes emails to measure.</p>
-      <h3>Conduct and market</h3><dl><div><dt>Conduct emails</dt><dd>1490</dd></div><div><dt>Conduct Yes</dt><dd>342</dd></div><div><dt>UK Yes</dt><dd>313</dd></div><div><dt>Market UK</dt><dd>1181</dd></div><div><dt>Market US</dt><dd>141</dd></div><div><dt>Market unknown</dt><dd>168</dd></div><div><dt>Errors</dt><dd>0</dd></div></dl>
+      <dl class="stats"><div><dt>Emails in the week</dt><dd>1128</dd></div><div><dt>AIR tagged</dt><dd>503</dd></div><div><dt>Tagged ratio</dt><dd>44.59%</dd></div><div><dt>Threshold</dt><dd>0.01235166285187</dd></div></dl>
+      <div class="bar" aria-hidden="true"><span style="width: 44.59%"></span></div>
+      <div class="fold">
+        <h3>Prior week 2026-11-08</h3><p class="note">No GSCOP Yes emails to measure.</p>
+        <h3>Conduct and market</h3><dl><div><dt>Conduct emails</dt><dd>1490</dd></div><div><dt>Conduct Yes</dt><dd>342</dd></div><div><dt>UK Yes</dt><dd>313</dd></div><div><dt>Market UK</dt><dd>1181</dd></div><div><dt>Market US</dt><dd>141</dd></div><div><dt>Market unknown</dt><dd>168</dd></div><div><dt>Errors</dt><dd>0</dd></div></dl>
+      </div>
       <p class="updated">Updated 2026-11-23</p>
-    </article>
-<article>
-      <h2>11/8 – 11/14</h2>
-      <dl><div><dt>Emails in the week</dt><dd>881</dd></div><div><dt>AIR tagged</dt><dd>358</dd></div><div><dt>Tagged ratio</dt><dd>40.64%</dd></div><div><dt>Threshold</dt><dd>0.01235166285187</dd></div></dl>
-      <h3>Prior week 2026-11-01</h3><p class="note">No GSCOP Yes emails to measure.</p>
-      <h3>Conduct and market</h3><dl><div><dt>Conduct emails</dt><dd>1238</dd></div><div><dt>Conduct Yes</dt><dd>224</dd></div><div><dt>UK Yes</dt><dd>201</dd></div><div><dt>Market UK</dt><dd>914</dd></div><div><dt>Market US</dt><dd>198</dd></div><div><dt>Market unknown</dt><dd>126</dd></div><div><dt>Errors</dt><dd>0</dd></div></dl>
-      <p class="updated">Updated 2026-11-21</p>
-    </article>
-    <p class="updated">Built 2026-11-23 16:03 UTC.</p>
+    </article><section class="archive">
+      <h2>Earlier weeks</h2>
+      <p class="note">Open a week for the prior-week check and the conduct counts.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Week</th><th>Emails</th><th>AIR tagged</th><th>Ratio</th></tr></thead>
+          <tbody>
+            <tr>
+      <td><details><summary>11/8 – 11/14</summary><div class="fold"><h3>Prior week 2026-11-01</h3><p class="note">No GSCOP Yes emails to measure.</p><h3>Conduct and market</h3><dl><div><dt>Conduct emails</dt><dd>1238</dd></div><div><dt>Conduct Yes</dt><dd>224</dd></div><div><dt>UK Yes</dt><dd>201</dd></div><div><dt>Market UK</dt><dd>914</dd></div><div><dt>Market US</dt><dd>198</dd></div><div><dt>Market unknown</dt><dd>126</dd></div><div><dt>Errors</dt><dd>0</dd></div></dl><p class="updated">Updated 2026-11-23</p></div></details></td>
+      <td>881</td>
+      <td>358</td>
+      <td>40.64%</td>
+    </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <p class="updated">Built 2026-11-23 16:18 UTC.</p>
   </main>
 </body>
 </html>
