@@ -43,6 +43,10 @@
     dd { margin: 0.2rem 0 0; font-size: 1.55rem; font-weight: 650; font-variant-numeric: tabular-nums; }
     .bar { height: 8px; background: #e3eeeb; border-radius: 99px; overflow: hidden; margin: 0 0 0.4rem; }
     .bar span { display: block; height: 100%; background: var(--teal); }
+    .highlights { margin: 0.85rem 0 0.2rem; }
+    .highlights ul { margin: 0.35rem 0 0; padding-left: 1.15rem; }
+    .highlights li { margin: 0.4rem 0; line-height: 1.45; }
+    .highlights li::marker { color: var(--teal); }
     .fold dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.7rem 1rem; margin: 0.4rem 0 0.8rem; }
     .fold dd { font-size: 1.05rem; }
     table { width: 100%; border-collapse: collapse; }
@@ -70,6 +74,7 @@
     <article class="latest">
       <p class="kicker">Latest week</p>
       <h2>11/15 – 11/21</h2>
+      <section class="highlights"><h3>Highlights</h3><ul><li>AIR tagged 503 of 1128 emails (44.59%). The week before was 358 of 881 (40.64%).</li><li>The AI Approach read 1490 emails. Conduct Yes 342. UK GSCOP Yes 313. The week before was Conduct Yes 224 and UK GSCOP Yes 201.</li><li>No GSCOP Yes emails in the prior week (2026-11-08), so recall was not measured.</li></ul></section>
       <dl class="stats"><div><dt>Emails in the week</dt><dd>1128</dd></div><div><dt>AIR tagged</dt><dd>503</dd></div><div><dt>Tagged ratio</dt><dd>44.59%</dd></div><div><dt>Threshold</dt><dd>0.01235166285187</dd></div></dl>
       <div class="bar" aria-hidden="true"><span style="width: 44.59%"></span></div>
       <div class="fold">
@@ -85,7 +90,7 @@
           <thead><tr><th>Week</th><th>Emails</th><th>AIR tagged</th><th>Ratio</th></tr></thead>
           <tbody>
             <tr>
-      <td><details><summary>11/8 – 11/14</summary><div class="fold"><h3>Prior week 2026-11-01</h3><p class="note">No GSCOP Yes emails to measure.</p><h3>Conduct and market</h3><dl><div><dt>Conduct emails</dt><dd>1238</dd></div><div><dt>Conduct Yes</dt><dd>224</dd></div><div><dt>UK Yes</dt><dd>201</dd></div><div><dt>Market UK</dt><dd>914</dd></div><div><dt>Market US</dt><dd>198</dd></div><div><dt>Market unknown</dt><dd>126</dd></div><div><dt>Errors</dt><dd>0</dd></div></dl><p class="updated">Updated 2026-11-23</p></div></details></td>
+      <td><details><summary>11/8 – 11/14</summary><div class="fold"><section class="highlights"><h3>Highlights</h3><ul><li>AIR tagged 358 of 881 emails (40.64%).</li><li>The AI Approach read 1238 emails. Conduct Yes 224. UK GSCOP Yes 201.</li><li>No GSCOP Yes emails in the prior week (2026-11-01), so recall was not measured.</li></ul></section><h3>Prior week 2026-11-01</h3><p class="note">No GSCOP Yes emails to measure.</p><h3>Conduct and market</h3><dl><div><dt>Conduct emails</dt><dd>1238</dd></div><div><dt>Conduct Yes</dt><dd>224</dd></div><div><dt>UK Yes</dt><dd>201</dd></div><div><dt>Market UK</dt><dd>914</dd></div><div><dt>Market US</dt><dd>198</dd></div><div><dt>Market unknown</dt><dd>126</dd></div><div><dt>Errors</dt><dd>0</dd></div></dl><p class="updated">Updated 2026-11-23</p></div></details></td>
       <td>881</td>
       <td>358</td>
       <td>40.64%</td>
@@ -94,7 +99,7 @@
         </table>
       </div>
     </section>
-    <p class="updated">Built 2026-11-23 16:18 UTC.</p>
+    <p class="updated">Built 2026-11-23 16:19 UTC.</p>
   </main>
 </body>
 </html>
